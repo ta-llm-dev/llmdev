@@ -29,12 +29,9 @@ def index():
 
 @app.route("/delete/<int:todo_id>", methods=["GET"])
 def delete(todo_id):
-    print(todo_id)
     todos = load_todos()
-    print(todos)
     if todo_id >= 0:
         todos.pop(todo_id)
-        print(todos)
         save_todos(todos)
     return redirect(url_for("index"))
 
